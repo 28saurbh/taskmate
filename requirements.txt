@@ -24,11 +24,13 @@ pycodestyle==2.6.0
 pylint==2.6.0
 PyPDF2==1.26.0
 python-bidi==0.4.2
+pytube==9.7.0
 pytz==2020.1
 reportlab==3.5.53
 six==1.15.0
 sqlparse==0.4.1
 toml==0.10.1
+typing-extensions==3.7.4.3
 webencodings==0.5.1
 whitenoise==5.2.0
 wrapt==1.12.1
