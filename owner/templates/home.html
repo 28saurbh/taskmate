@@ -1,0 +1,119 @@
+{% extends 'base1.html' %}
+
+{% block title %}
+<title>Owner Home</title>
+{% endblock title %}
+
+{% block content %}
+<div class="mt-3 container ">
+    {% if messages %}
+        {% for msg in messages %}
+            {% if msg.tags == 'success' %}
+             <div class="alert  alert-info alert-dismissible fade show form" role="alert">
+                {{ msg }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% else %}
+             <div class="alert  alert-danger alert-dismissible fade show form" role="alert">
+                {{ msg }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endif %}
+           
+        {% endfor %}
+    {% endif %}
+
+   
+
+    <a href="{% url 'msg'  %}" style="float: right;" class="btn btn-primary">
+        Messages
+    </a>
+    <a href="{% url 'welcome'  %}" class="btn btn-primary">
+        Back
+    </a>
+</div>
+<div class="container ">
+    <div class="mt-5">
+        {% for img in photo %}
+        <div style="display: inline-block;">
+            <label for="">Profile Photo</label>
+            <img src="{{img.profile_picture.url}}" alt="hy">
+            <a href="{% url 'edit_img' img.id %}" class="btn btn-primary">
+                Edit
+            </a>
+        </div>
+
+        <div style="display: inline-block; float: right;">
+            <br>
+            <label for="">About Photo</label>
+            <img src="{{img.about_picture.url}}" alt="hy">
+            <br>
+            <a href="{% url 'about_img' img.id %}" class="btn btn-primary">
+                Edit
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    {% for obj in data %}
+    <table class="table table-bordered mt-3">
+
+        <tbody>
+
+            <tr>
+                <th>Name:</th>
+                <td>{{obj.name}}</td>
+            </tr>
+            <tr>
+                <th>work:</th>
+                <td>{{obj.working}}</td>
+            </tr>
+            <tr>
+                <th>About:</th>
+                <td>{{obj.about}}</td>
+            </tr>
+            <tr>
+                <th>Skill Description:</th>
+                <td>{{obj.skilldes}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="{% url 'edit' obj.id %}" class="btn btn-primary" style="float: right;">
+        Edit
+    </a>
+
+
+    <br><br>
+    <h4>Skill:-</h4>
+    <table class="table table-bordered">
+        <tbody>
+            {% for obj1 in skill %}
+            <tr>
+                <td>{{obj1.SkName}}</td>
+                <td>{{obj1.percent}}</td>
+                <td>
+                    <a href="{% url 'delete_skill' obj1.id %}" class="btn btn-danger " style="float: right;">
+                        Delete</a>
+                    <a href="{% url 'edit_skill' obj1.id %}" class="btn btn-primary mr-2" style="float: right;">
+                        Edit
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+    <a href="{% url 'add' %}" class="btn btn-primary mb-5 " style="float: right;">
+        Add Skill
+    </a>
+
+    {% endfor %}
+</div>
+
+{% endblock content %}

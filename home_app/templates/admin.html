@@ -1,0 +1,11 @@
+
+
+
+<form class="row" method="POST">
+        {% csrf_token %}
+        {% for obj in data%}
+            <label class="col-lg-3"></label>
+            <input type="text" name="name" value="{{obj.name}}" class="form-control col-lg-6" placeholder="name" >
+            <button type="submit" class="btn btn-primary col-lg-1">Submit</button>
+        {% endfor %}
+    </form>

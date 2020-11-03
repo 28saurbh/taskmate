@@ -1,0 +1,46 @@
+{% extends 'base1.html' %}
+
+{% block title %}
+<title>Messages</title>
+{% endblock title %}
+
+{% block content %}
+{% if msg %}
+{% for obj in msg %}
+<div class="container table-responsive font">
+    <table class="table mt-3">
+
+        <tbody>
+
+            <tr>
+                <th>Name:</th>
+                <td>{{obj.name}}</td>
+            </tr>
+            <tr>
+                <th>Email:</th>
+                <td>{{obj.email}}</td>
+            </tr>
+            <tr>
+                <th>Messages:</th>
+                
+                <td>{{obj.contact_des}}</td>
+            </tr>
+           
+        </tbody>
+    </table>
+    <a href="{% url 'delete_msg' obj.id %}" class="btn btn-danger" style="float: right;">
+        Delete
+    </a>
+
+
+</div>
+{% endfor %}
+{% else %}
+<div class="container mt-5">
+
+    <h3>Ops! No Message Found!</h3>
+</div>
+
+{% endif %}
+
+{% endblock %}

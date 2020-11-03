@@ -1,0 +1,27 @@
+{% extends 'base1.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<div class="container" style="width: 40%;" >
+
+
+    <!-- {% if messages %}
+    {% for msg in messages %}
+    <div class="alert alert-info alert-dismissible fade show form" role="alert">
+        {{ msg }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endif %} -->
+
+    <form class="mt-5" method="POST">
+        {% csrf_token %}
+
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base1.html' %}
+
+{% block title %}
+<title>Add skill</title>
+{% endblock title %}
+
+
+{% block content %}
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group mt-5">
+          {% comment %} <label>Name:</label> {% endcomment %}
+          <input type="text" name="SkName" class="contact__input" placeholder="name" id="exampleInputEmail1" aria-describedby="emailHelp" style="width: 40%;">
+          {% comment %} <label>Percent:</label> {% endcomment %}<br>
+          <input type="text" name="percent" class="contact__input"  placeholder="Percent" id="exampleInputEmail1" aria-describedby="emailHelp" style="width: 40%;">
+        </div>
+        
+        <button type="submit" class="btn btn-primary col-lg-1">Submit</button>
+
+      </form>
+</div>
+{% endblock content %}

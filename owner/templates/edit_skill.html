@@ -1,0 +1,23 @@
+{% extends 'base1.html' %}
+{% block content %}
+<div class='container'>
+
+    <form class="mt-5" method='POST'>
+            {% csrf_token %}
+            
+            <div>
+            
+                <label class="col-lg-3">Skill Name:</label>
+                <input type="name" name="SkName" value="{{task.SkName}}" class="form-control col-lg-6" >
+
+                <label class="col-lg-3">Skill percent:</label>
+                <input type="text" name="percent" value="{{task.percent}}" class="form-control col-lg-6" >
+               <br>
+            </div>
+            
+                <button type="submit" class="btn btn-primary col-lg-1">Submit</button>
+    </form> 
+
+</div>
+
+{% endblock content %}
